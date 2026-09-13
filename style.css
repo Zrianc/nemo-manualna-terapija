@@ -195,7 +195,7 @@
   form{display:flex;flex-direction:column;gap:16px;background:var(--bg);border-radius:var(--radius);padding:30px;border:1px solid var(--line);}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   label{display:block;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:7px;}
-  input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;font-family:var(--sans);font-size:.92rem;background:#fff;color:var(--ink);transition:border-color .15s;}
+  input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;font-family:var(--sans);font-size:16px;background:#fff;color:var(--ink);transition:border-color .15s;}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);}
   textarea{resize:vertical;min-height:96px;}
 
@@ -234,19 +234,55 @@
     .why-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:repeat(2,1fr);row-gap:20px;}
     .contact-grid{grid-template-columns:1fr;gap:40px;}
+    .review-grid{grid-template-columns:repeat(2,1fr);}
+    section{padding:76px 0;}
   }
   @media (max-width:680px){
     .wrap{padding:0 20px;}
     .topbar-info{gap:14px;}
     .topbar-info span{display:none;}
     .topbar-info a[href^="mailto"]{display:none;}
-    section{padding:60px 0;}
+    section{padding:56px 0;}
+    .hero{padding:56px 0 68px;}
     .service-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:1fr;}
     .form-row{grid-template-columns:1fr;}
-    h2{font-size:1.6rem;}
+    h1{font-size:2rem !important;}
+    h2{font-size:1.5rem;}
+    h3{font-size:1.08rem;}
+    .lede{font-size:1rem;max-width:none;}
     .footer-grid{flex-direction:column;}
     .cookie-banner{left:14px;right:14px;bottom:14px;max-width:none;}
+
+    /* Čitljivost i razmaci */
+    body{line-height:1.7;}
+    .section-head{margin-bottom:36px;}
+    .eyebrow{font-size:.7rem;}
+
+    /* Recenzije - nedostajao je responsive raspored, ostajale su u 3 stupca */
+    .review-grid{grid-template-columns:1fr;gap:16px;}
+    .review-card{padding:24px 22px;}
+
+    /* Veće dodirne površine za lakše tapkanje */
+    .nav-toggle{padding:10px;}
+    .btn{padding:15px 26px;}
+    .dd-menu a{padding:13px 14px;}
+    .footer-links a{display:inline-block;padding:4px 0;}
+    .footer-links{gap:20px;row-gap:10px;}
+
+    /* Kartice - malo manje unutarnjeg razmaka da tekst diše na uskom ekranu */
+    .service-card,.process-step,.team-member-body{padding:24px 22px;}
+    .service-detail{padding:28px 0;}
+    .service-detail .service-icon{margin-bottom:6px;}
+
+    /* Osnivač badge-ovi - urednija 2x2 mreža umjesto neravnog lomljenja */
+    .founder-badges{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .founder-badge{min-width:0;}
+    .founder-name{font-size:1.4rem;}
+
+    /* Cjenik - jasniji razmak cijene od naziva na uskom ekranu */
+    .price-block h3{font-size:1.05rem;}
+    .price-row{font-size:.9rem;}
   }
 
 /* ---------- PAGE HEADER (podstranice: O nama, Usluge, Kontakt) ---------- */
