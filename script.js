@@ -12,16 +12,43 @@ navToggle?.addEventListener('click', () => {
     : 'display:none;';
 });
 
-// Kontakt forma -> mailto (samo na stranicama koje je imaju, npr. kontakt.html)
-document.getElementById('kontaktForm')?.addEventListener('submit', (e) => {
+// Kontakt forma -> Web3Forms (šalje upit izravno na email, bez otvaranja email klijenta)
+const kontaktForm = document.getElementById('kontaktForm');
+kontaktForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const ime = document.getElementById('cIme').value;
-  const tel = document.getElementById('cTel').value;
-  const usluga = document.getElementById('cUsluga').value;
-  const poruka = document.getElementById('cPoruka').value;
-  const subject = encodeURIComponent('Upit s web stranice — ' + usluga);
-  const body = encodeURIComponent(`Ime i prezime: ${ime}\nTelefon: ${tel}\nUsluga: ${usluga}\n\nPoruka:\n${poruka}`);
-  window.location.href = `mailto:nemo.manualnaterapija@gmail.com?subject=${subject}&body=${body}`;
+  const btn = document.getElementById('formSubmitBtn');
+  const result = document.getElementById('formResult');
+  const originalBtnText = btn.textContent;
+
+  btn.disabled = true;
+  btn.textContent = 'Šaljem...';
+  result.textContent = '';
+  result.className = 'form-result';
+
+  const formData = new FormData(kontaktForm);
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    });
+    const json = await response.json();
+
+    if (json.success) {
+      kontaktForm.reset();
+      result.textContent = 'Hvala! Vaš upit je uspješno poslan — javit ćemo se uskoro.';
+      result.classList.add('form-result-success');
+    } else {
+      throw new Error(json.message || 'Slanje nije uspjelo');
+    }
+  } catch (err) {
+    result.textContent = 'Nešto je pošlo po zlu. Molimo pokušajte ponovno ili nas nazovite direktno na 095 861 1661.';
+    result.classList.add('form-result-error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalBtnText;
+  }
 });
 
 // Cookie banner (zajednički na svim stranicama, pamti izbor kroz localStorage)

@@ -108,24 +108,35 @@
     </div>
 
     <form id="kontaktForm">
+      <input type="hidden" name="access_key" value="4539314b-ea01-4fcb-9784-a42aaea12d92">
+      <input type="hidden" name="subject" value="Novi upit s web stranice — NeMo manualna terapija">
+      <input type="hidden" name="from_name" value="NeMo web stranica">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
-        <div><label for="cIme">Ime i prezime</label><input type="text" id="cIme" required /></div>
-        <div><label for="cTel">Telefon</label><input type="tel" id="cTel" required /></div>
+        <div><label for="cIme">Ime i prezime</label><input type="text" id="cIme" name="Ime_i_prezime" required /></div>
+        <div><label for="cTel">Telefon</label><input type="tel" id="cTel" name="Telefon" required /></div>
       </div>
       <div>
         <label for="cUsluga">Usluga koja vas zanima</label>
-        <select id="cUsluga">
+        <select id="cUsluga" name="Usluga">
           <option>Fizioterapeutska procjena</option>
-          <option>Manualna terapija</option>
-          <option>Ciljana kineziterapija</option>
-          <option>Elektroterapija</option>
-          <option>Bezbolni udarni val</option>
+          <option>Manualne tehnike po Cyriaxu</option>
+          <option>Miofascijalna relaksacija (MFR)</option>
+          <option>IASTM</option>
+          <option>Trigger point terapija</option>
+          <option>PNF</option>
+          <option>DNS — vježbe disanja</option>
+          <option>Flossing</option>
+          <option>Cupping</option>
+          <option>Limfna drenaža aparatom</option>
+          <option>Elektroterapijske procedure</option>
           <option>Nisam siguran/na</option>
         </select>
       </div>
-      <div><label for="cPoruka">Poruka</label><textarea id="cPoruka" placeholder="Ukratko opišite tegobu ili željeni termin..."></textarea></div>
-      <button type="submit" class="btn btn-solid" style="justify-content:center;">Pošalji upit</button>
-      <p class="form-note">Slanjem forme otvara se vaš email klijent s pripremljenom porukom. Za trenutan odgovor, nazovite nas direktno.</p>
+      <div><label for="cPoruka">Poruka</label><textarea id="cPoruka" name="Poruka" placeholder="Ukratko opišite tegobu ili željeni termin..."></textarea></div>
+      <button type="submit" class="btn btn-solid" id="formSubmitBtn" style="justify-content:center;">Pošalji upit</button>
+      <p class="form-note" id="formNote">Odgovaramo isti radni dan. Za hitne upite, nazovite nas direktno.</p>
+      <p class="form-result" id="formResult"></p>
     </form>
   </div>
 </section>

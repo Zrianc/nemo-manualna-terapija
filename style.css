@@ -141,6 +141,9 @@
   .vas-bar-label{font-size:.76rem;color:var(--ink-soft);width:36px;flex-shrink:0;font-weight:600;}
   .vas-bar-val{font-size:.8rem;width:34px;text-align:right;flex-shrink:0;font-weight:700;}
   .form-note{font-size:.78rem;color:var(--ink-soft);}
+  .form-result{font-size:.86rem;font-weight:600;min-height:1px;}
+  .form-result-success{color:var(--teal-deep);}
+  .form-result-error{color:#C0392B;}
 
   /* ---------- PROCES ---------- */
   .process{background:var(--bg);}
