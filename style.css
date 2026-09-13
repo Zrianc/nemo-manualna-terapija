@@ -229,6 +229,7 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:980px){
     .topbar-info span:last-child{display:none;}
+    .topbar-address{display:none;}
     .nav-links{display:none;}
     .nav-toggle{display:block;}
     .hero-grid{grid-template-columns:1fr;}
@@ -239,6 +240,22 @@
     .contact-grid{grid-template-columns:1fr;gap:40px;}
     .review-grid{grid-template-columns:repeat(2,1fr);}
     section{padding:76px 0;}
+
+    /* Mobilni izbornik - podizbornici rade na tap (accordion), ne preklapaju se */
+    .nav-item{width:100%;}
+    .nav-link{width:100%;justify-content:space-between;padding:14px 4px;font-size:1rem;}
+    .nav-links > a.nav-link{padding:14px 4px;}
+    .dd-menu{
+      position:static;opacity:1;visibility:visible;transform:none;
+      box-shadow:none;border:none;border-radius:0;padding:0;margin-left:8px;
+      max-height:0;overflow:hidden;
+      transition:max-height .28s ease;
+    }
+    .nav-item.open .dd-menu{max-height:600px;padding:4px 0 10px;}
+    .nav-item .nav-link svg{transition:transform .25s ease;}
+    .nav-item.open .nav-link svg{transform:rotate(180deg);}
+    .dd-menu a{padding:12px 14px;font-size:.95rem;}
+    .nav-right{border-top:1px solid var(--line);margin-top:10px;padding-top:16px;}
   }
   @media (max-width:680px){
     .wrap{padding:0 20px;}
