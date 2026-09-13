@@ -1,0 +1,98 @@
+# NeMo — Tehnologije i servisi
+
+Pregled svega što pokreće web stranicu `nemo.hr`: koji servis radi što, i do koje razine je besplatan.
+
+---
+
+## 1. Sama web stranica
+
+| Stavka | Opis |
+|---|---|
+| Tip stranice | Statična web stranica (čisti HTML, CSS, JavaScript — bez baze podataka, bez backend servera) |
+| Datoteke | `index.html`, `o-nama.html`, `usluge.html`, `cjenik.html`, `kontakt.html`, `style.css`, `script.js`, `images/` |
+| Cijena | 0 € — nema tehnologije koja se plaća za samu izradu/postojanje stranice |
+
+Budući da je stranica statična (nema "pozadinske" logike koja se pokreće na serveru), održavanje je jeftino i jednostavno — ažuriranje znači samo zamjenu datoteka.
+
+---
+
+## 2. Hosting — GitHub Pages
+
+| | |
+|---|---|
+| **Servis** | GitHub Pages |
+| **Uloga** | Servira (prikazuje) web stranicu javnosti, 0-24 |
+| **Repozitorij** | `nemo-manualna-terapija` (GitHub, korisnik Zrianc) |
+| **Cijena** | **Besplatno**, trajno, za javne repozitorije |
+| **Besplatni limiti** | 1 GB veličina stranice · ~100 GB prometa mjesečno (soft limit) · 10 build-ova na sat |
+| **Kad bi trebalo platiti** | Praktički nikad za ovakvu stranicu — limiti su daleko iznad onoga što mala poliklinika generira. Trebalo bi tisuće posjetitelja dnevno da se dosegne granica. |
+
+---
+
+## 3. Domena — nemo.hr
+
+| | |
+|---|---|
+| **Servis** | CARNET / domene.hr (službeni hrvatski registar za .hr domene) |
+| **Uloga** | Vlasništvo nad adresom `nemo.hr` |
+| **Registrirano do** | 31.08.2027. |
+| **Cijena** | **Jedini stvarni godišnji trošak** u cijelom sustavu. Produžuje se jednom godišnje preko domene.hr/portal/mydomain. Za točnu trenutnu cijenu produženja pogledati na [domene.hr](https://www.domene.hr) (cijene .hr domena se povremeno mijenjaju). |
+| **Napomena** | Bez ove domene, stranica bi i dalje radila na besplatnoj GitHub adresi (`zrianc.github.io/nemo-manualna-terapija`), samo manje profesionalno izgleda. |
+
+---
+
+## 4. DNS — Cloudflare
+
+| | |
+|---|---|
+| **Servis** | Cloudflare |
+| **Uloga** | Upravlja DNS zapisima domene (povezuje `nemo.hr` s GitHub Pagesom) — potrebno jer CARNET ne nudi izravno upravljanje A/CNAME zapisima za .hr domene |
+| **Plan** | Free |
+| **Cijena** | **Besplatno**, bez vremenskog ograničenja |
+| **Besplatni limiti** | Neograničen broj DNS upita za osobnu/malu poslovnu upotrebu. Dodatne značajke (WAF, napredna analitika, caching pravila) su plaćene, ali se ne koriste za ovu stranicu. |
+
+---
+
+## 5. Kontakt forma — Web3Forms
+
+| | |
+|---|---|
+| **Servis** | Web3Forms |
+| **Uloga** | Prima podatke iz kontakt forme na `kontakt.html` i šalje ih kao email na `nemo.manualnaterapija@gmail.com`, bez potrebe za vlastitim backend serverom |
+| **Cijena** | **Besplatno** do 250 upita mjesečno |
+| **Kad bi trebalo platiti** | Tek ako klinika prima **više od ~8 upita dnevno** putem forme (250/mjesečno). Za malu polikliniku ovo je vrlo velika rezerva prostora — realno se ne očekuje da se dosegne. Ako se ikad dosegne, plaćeni planovi kreću od par eura mjesečno. |
+| **Pristupni ključ** | Spremljen unutar `kontakt.html` (nije tajna — javni je po dizajnu servisa, ne omogućuje pristup email računu) |
+
+---
+
+## 6. Google servisi
+
+| Servis | Uloga | Cijena |
+|---|---|---|
+| **Google Search Console** | Praćenje kako Google indeksira i rangira stranicu | Besplatno |
+| **Google Business Profil** | Profil koji se pojavljuje na Google karti i pretrazi (ocjene, radno vrijeme, fotografije) | Besplatno |
+| **Google Maps embed** (na `kontakt.html`) | Prikaz karte s lokacijom | Besplatno (koristi se jednostavna ugradnja bez API ključa, pa nema limita niti naplate) |
+| **Google Fonts** (Manrope, Inter) | Fontovi korišteni na cijeloj stranici | Besplatno, bez limita |
+
+---
+
+## 7. Sažetak troškova
+
+| Servis | Mjesečni trošak | Godišnji trošak |
+|---|---|---|
+| GitHub Pages (hosting) | 0 € | 0 € |
+| Cloudflare (DNS) | 0 € | 0 € |
+| Web3Forms (kontakt forma) | 0 € | 0 € |
+| Google servisi | 0 € | 0 € |
+| **Domena nemo.hr** | — | *vidi domene.hr za trenutnu cijenu produženja* |
+| **UKUPNO** | **0 €** | **samo produženje domene** |
+
+---
+
+## 8. Što ako neki servis ukine besplatni plan ili zatreba nadogradnju?
+
+Svi servisi korišteni ovdje (GitHub, Cloudflare, Web3Forms) su etablirane platforme s dugoročno stabilnim besplatnim planovima namijenjenim točno ovakvim malim projektima — nije uobičajeno da ih se odjednom ukine. Ako se ikad pokaže da je nešto potrebno nadograditi (npr. više upita na kontakt formi), radi se o promjeni plana unutar istog servisa (npr. Web3Forms plaćeni tier), a ne o preseljenju cijele stranice.
+
+---
+
+*Dokument ažuriran: rujan 2026.*

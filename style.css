@@ -39,6 +39,20 @@
   .btn-outline-white{border-color:rgba(255,255,255,.75);color:#fff;background:transparent;}
   .btn-outline-white:hover{background:#fff;color:var(--teal-deep);}
 
+  /* ---------- MOBILNA KONTAKT TRAKA (dno stranice, samo mobitel/tablet) ---------- */
+  .mobile-contact-bar{display:none;}
+  @media (max-width:980px){
+    .topbar{display:none;}
+    .mobile-contact-bar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      background:var(--teal);color:#fff;padding:18px 20px;
+    }
+    .mobile-contact-bar a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;opacity:.97;}
+    .mobile-contact-social{display:flex;gap:10px;}
+    .mobile-contact-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;}
+    .mobile-contact-social a:hover{background:#fff;color:var(--teal-deep);}
+  }
+
   /* ---------- TOPBAR ---------- */
   .topbar{background:var(--teal);color:#fff;font-size:.82rem;}
   .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:42px;gap:20px;}
