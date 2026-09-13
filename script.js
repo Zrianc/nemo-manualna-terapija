@@ -8,8 +8,26 @@ const navLinksEl = document.querySelector('.nav-links');
 navToggle?.addEventListener('click', () => {
   const open = navLinksEl.classList.toggle('mobile-open');
   navLinksEl.style.cssText = open
-    ? 'display:flex;position:absolute;top:82px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:14px 28px 22px;border-bottom:1px solid var(--line);gap:2px;z-index:80;'
+    ? 'display:flex;position:absolute;top:82px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:14px 28px 22px;border-bottom:1px solid var(--line);gap:2px;z-index:80;max-height:calc(100vh - 82px);overflow-y:auto;'
     : 'display:none;';
+  // Zatvori sve otvorene podizbornike kad se glavni izbornik zatvori
+  if (!open) {
+    document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+  }
+});
+
+// Podizbornici (O nama, Usluge) na mobitelu rade na tap/klik, ne na hover
+document.querySelectorAll('.nav-item').forEach((item) => {
+  const trigger = item.querySelector('.nav-link');
+  if (!trigger || trigger.tagName !== 'BUTTON') return;
+  trigger.addEventListener('click', (e) => {
+    if (window.matchMedia('(max-width: 980px)').matches) {
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.nav-item.open').forEach(other => { if (other !== item) other.classList.remove('open'); });
+      item.classList.toggle('open', !isOpen);
+    }
+  });
 });
 
 // Kontakt forma -> Web3Forms (šalje upit izravno na email, bez otvaranja email klijenta)
