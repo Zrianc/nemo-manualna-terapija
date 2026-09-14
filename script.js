@@ -2,6 +2,17 @@
 
 document.getElementById('godina') && (document.getElementById('godina').textContent = new Date().getFullYear());
 
+// Automatski odabir usluge u formi ako je proslijeđena kroz URL (npr. usluge.html -> kontakt.html?usluga=...)
+const uslugaSelect = document.getElementById('cUsluga');
+if (uslugaSelect) {
+  const params = new URLSearchParams(window.location.search);
+  const odabranaUsluga = params.get('usluga');
+  if (odabranaUsluga) {
+    const match = Array.from(uslugaSelect.options).find(opt => opt.value === odabranaUsluga);
+    if (match) uslugaSelect.value = odabranaUsluga;
+  }
+}
+
 // Mobilni izbornik
 const navToggle = document.querySelector('.nav-toggle');
 const navLinksEl = document.querySelector('.nav-links');
