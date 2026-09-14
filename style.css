@@ -66,7 +66,7 @@
   .mainnav{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 1px 0 var(--line);}
   .nav{display:flex;align-items:center;gap:32px;height:82px;}
   .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
-  .logo .mark{width:38px;height:38px;border-radius:10px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--heading);font-weight:800;font-size:1rem;}
+  .logo .mark{width:38px;height:38px;border-radius:10px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--heading);font-weight:800;font-size:1rem;object-fit:cover;flex-shrink:0;}
   .logo .word{font-family:var(--heading);font-weight:800;font-size:1.15rem;letter-spacing:.02em;color:var(--ink);}
   .logo .word span{color:var(--teal-deep);}
 
@@ -220,7 +220,7 @@
   footer{background:var(--ink);color:#B7C1CC;padding:52px 0 26px;}
   .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.12);}
   .footer-logo{display:flex;align-items:center;gap:10px;font-family:var(--heading);font-weight:800;font-size:1.1rem;color:#fff;}
-  .footer-logo .mark{width:32px;height:32px;border-radius:9px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;}
+  .footer-logo .mark{width:32px;height:32px;border-radius:9px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;object-fit:cover;flex-shrink:0;}
   .footer-links{display:flex;gap:28px;font-size:.86rem;}
   .footer-links a{text-decoration:none;color:#B7C1CC;}
   .footer-links a:hover{color:#fff;}
@@ -262,10 +262,9 @@
     .dd-menu{
       position:static;opacity:1;visibility:visible;transform:none;
       box-shadow:none;border:none;border-radius:0;padding:0;margin-left:8px;
-      max-height:0;overflow:hidden;
-      transition:max-height .28s ease;
+      display:none;
     }
-    .nav-item.open .dd-menu{max-height:600px;padding:4px 0 10px;}
+    .nav-item.open .dd-menu{display:block;padding:4px 0 10px;}
     .nav-item .nav-link svg{transition:transform .25s ease;}
     .nav-item.open .nav-link svg{transform:rotate(180deg);}
     .dd-menu a{padding:12px 14px;font-size:.95rem;}
