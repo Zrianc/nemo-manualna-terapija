@@ -263,6 +263,10 @@
     .hero-split{grid-template-columns:1fr;min-height:0;}
     .hero-content{padding:44px 20px 36px;}
     .hero-photo img{min-height:260px;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .hero-media{max-width:420px;margin:0 auto;width:100%;}
+    .hero-photo-card img{height:260px;}
+    .hero-photo-note{left:50%;transform:translateX(-50%);white-space:nowrap;}
     .service-grid{grid-template-columns:repeat(2,1fr);}
     .why-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:repeat(2,1fr);row-gap:20px;}
