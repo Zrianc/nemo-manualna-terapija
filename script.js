@@ -80,6 +80,37 @@ kontaktForm?.addEventListener('submit', async (e) => {
   }
 });
 
+// Slideshow klijenata/sportaša (samo na početnoj stranici)
+(function () {
+  const slider = document.getElementById('clientsSlider');
+  if (!slider) return;
+  const slides = slider.querySelectorAll('.slider-slide');
+  const dots = slider.querySelectorAll('.slider-dot');
+  let current = 0;
+  let timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function next() { goTo(current + 1); }
+
+  function startAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(next, 4500);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); startAutoplay(); });
+  });
+
+  startAutoplay();
+})();
+
 // Cookie banner (zajednički na svim stranicama, pamti izbor kroz localStorage)
 const cookieBanner = document.getElementById('cookieBanner');
 if (cookieBanner && !localStorage.getItem('nemo_cookie_consent')) {
