@@ -9,7 +9,7 @@ Pregled svega što pokreće web stranicu `nemo.hr`: koji servis radi što, i do 
 | Stavka | Opis |
 |---|---|
 | Tip stranice | Statična web stranica (čisti HTML, CSS, JavaScript — bez baze podataka, bez backend servera) |
-| Datoteke | `index.html`, `o-nama.html`, `usluge.html`, `cjenik.html`, `kontakt.html`, `style.css`, `script.js`, `images/` |
+| Datoteke | `index.html`, `o-nama.html`, `usluge.html`, `kontakt.html`, `style.css`, `script.js`, `images/` |
 | Cijena | 0 € — nema tehnologije koja se plaća za samu izradu/postojanje stranice |
 
 Budući da je stranica statična (nema "pozadinske" logike koja se pokreće na serveru), održavanje je jeftino i jednostavno — ažuriranje znači samo zamjenu datoteka.
